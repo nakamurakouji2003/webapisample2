@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>jQuery_Ajax_Request</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+    <description>Login</description>
+    <display-name>LoginCtrl</display-name>
+    <servlet-name>LoginCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.userauth.ctrl.LoginCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginCtrl</servlet-name>
+    <url-pattern>/LoginCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>Logout</description>
+    <display-name>LogoutCtrl</display-name>
+    <servlet-name>LogoutCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.userauth.ctrl.LogoutCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutCtrl</servlet-name>
+    <url-pattern>/LogoutCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>UserAdd</description>
+    <display-name>UserAddCtrl</display-name>
+    <servlet-name>UserAddCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.userauth.ctrl.UserAddCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAddCtrl</servlet-name>
+    <url-pattern>/UserAddCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>UserChg</description>
+    <display-name>UserChgCtrl</display-name>
+    <servlet-name>UserChgCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.userauth.ctrl.UserChgCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserChgCtrl</servlet-name>
+    <url-pattern>/UserChgCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>UserDel</description>
+    <display-name>UserDelCtrl</display-name>
+    <servlet-name>UserDelCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.userauth.ctrl.UserDelCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDelCtrl</servlet-name>
+    <url-pattern>/UserDelCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>ZipCodeSearchCtrl</description>
+    <display-name>ZipCodeSearchCtrl</display-name>
+    <servlet-name>ZipCodeSearchCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.zipcode.ctrl.ZipCodeSearchCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ZipCodeSearchCtrl</servlet-name>
+    <url-pattern>/ZipCodeSearchCtrl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>FileUploadCtrl</description>
+    <display-name>FileUploadCtrl</display-name>
+    <servlet-name>FileUploadCtrl</servlet-name>
+    <servlet-class>jp.ac.hal.fd.ctrl.FileUploadCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadCtrl</servlet-name>
+    <url-pattern>/FileUploadCtrl</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>Encoding</filter-name>
+    <filter-class>jp.ac.hal.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+</web-app>

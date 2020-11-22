@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.ac.hal.zipcode.dao.ZipCodeMapper">
+
+  <resultMap id="ZipCodeMap" type="jp.ac.hal.zipcode.model.ZipCode" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="jiscode" property="jiscode" jdbcType="VARCHAR" />
+    <result column="zipcode_old" property="zipcodeOld" jdbcType="VARCHAR" />
+    <result column="zipcode" property="zipcode" jdbcType="VARCHAR" />
+    <result column="pref_kana" property="prefKana" jdbcType="VARCHAR" />
+    <result column="city_kana" property="cityKana" jdbcType="VARCHAR" />
+    <result column="street_kana" property="streetKana" jdbcType="VARCHAR" />
+    <result column="pref" property="pref" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="street" property="street" jdbcType="VARCHAR" />
+    <result column="flag1" property="flag1" jdbcType="INTEGER" />
+    <result column="flag2" property="flag2" jdbcType="INTEGER" />
+    <result column="flag3" property="flag3" jdbcType="INTEGER" />
+    <result column="flag4" property="flag4" jdbcType="INTEGER" />
+    <result column="flag5" property="flag5" jdbcType="INTEGER" />
+    <result column="flag6" property="flag6" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectByZipCode" resultMap="ZipCodeMap" parameterType="string">
+    SELECT id, jiscode, zipcode_old, zipcode, pref_kana, city_kana, street_kana, pref, city, street, flag1, flag2, flag3, flag4, flag5, flag6 FROM zipcode WHERE zipcode = #{zipcode}
+  </select>
+
+
+</mapper>

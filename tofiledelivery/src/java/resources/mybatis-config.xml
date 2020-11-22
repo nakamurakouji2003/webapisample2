@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/haldb?serverTimezone=JST&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+        <property name="username" value="dbadmin"/>
+        <property name="password" value="dbadmin"/>
+      </dataSource>
+    </environment>
+  </environments>
+	<!-- Mapperのパッケージを指定 -->
+	<mappers>
+		<package name="jp.ac.hal.userauth.dao" />
+		<package name="jp.ac.hal.zipcode.dao" />
+		<package name="jp.ac.hal.fd.dao" />
+	</mappers>
+</configuration>

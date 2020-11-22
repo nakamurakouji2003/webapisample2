@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.ac.hal.userauth.dao.UserInfoMapper">
+
+  <resultMap id="UserInfoMap" type="jp.ac.hal.userauth.model.UserInfo" >
+    <id column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="firstName" property="firstName" jdbcType="VARCHAR" />
+    <result column="lastName" property="lastName" jdbcType="VARCHAR" />
+    <result column="phoneNo" property="phoneNo" jdbcType="VARCHAR" />
+    <result column="postalCd" property="postalCd" jdbcType="VARCHAR" />
+    <result column="pref" property="pref" jdbcType="VARCHAR" />
+    <result column="address1" property="address1" jdbcType="VARCHAR" />
+    <result column="address2" property="address2" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="jsessionId" property="jsessionId" jdbcType="VARCHAR" />
+    <result column="useSystemId" property="useSystemId" jdbcType="VARCHAR" />
+    <result column="secret" property="secret" jdbcType="VARCHAR" />
+    <result column="availabilityFlag" property="availabilityFlag" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectUserId" resultType="int">
+    SELECT userId FROM userinfo WHERE userId = #{userId}
+  </select>
+
+  <select id="selectByUserNameAndPw" resultMap="UserInfoMap" parameterType="string">
+    SELECT userId, userName, password, firstName, lastName, phoneNo, postalCd, pref, address1, address2, email, jsessionId, useSystemId, secret, availabilityFlag FROM userinfo WHERE userName = #{userName} and password = #{password}
+  </select>
+
+  <select id="selectByUserName" resultMap="UserInfoMap" parameterType="string">
+    SELECT userId, userName, password, firstName, lastName, phoneNo, postalCd, pref, address1, address2, email, jsessionId, useSystemId, secret, availabilityFlag FROM userinfo WHERE userName = #{userName}
+  </select>
+
+  <insert id="insertUserinfo" parameterType="jp.ac.hal.userauth.model.UserInfo">
+    INSERT INTO userinfo (userId, userName, password, firstName, lastName, phoneNo, postalCd, pref, address1, address2, email, jsessionId, useSystemId, secret, availabilityFlag )
+    VALUES (
+    #{userId,jdbcType=BIGINT},
+    #{userName,jdbcType=VARCHAR},
+    #{password,jdbcType=VARCHAR},
+    #{firstName,jdbcType=VARCHAR},
+    #{lastName,jdbcType=VARCHAR},
+    #{phoneNo,jdbcType=VARCHAR},
+    #{postalCd,jdbcType=VARCHAR},
+    #{pref,jdbcType=VARCHAR},
+    #{address1,jdbcType=VARCHAR},
+    #{address2,jdbcType=VARCHAR},
+    #{email,jdbcType=VARCHAR},
+    #{jsessionId,jdbcType=VARCHAR},
+    #{useSystemId,jdbcType=VARCHAR},
+    #{secret,jdbcType=VARCHAR},
+    #{availabilityFlag,jdbcType=VARCHAR}
+    )
+  </insert>
+
+  <update id="updateUserinfo" parameterType="jp.ac.hal.userauth.model.UserInfo">
+    UPDATE userinfo SET
+      userName = #{userName},
+      password = #{password},
+      firstName = #{firstName},
+      lastName = #{lastName},
+      phoneNo = #{phoneNo},
+      postalCd = #{postalCd},
+      pref = #{pref},
+      address1 = #{address1},
+      address2 = #{address2},
+      email = #{email},
+      jsessionId = #{jsessionId},
+      useSystemId = #{useSystemId},
+      secret = #{secret},
+      availabilityFlag = #{availabilityFlag}
+    WHERE userId = #{userId}
+  </update>
+
+  <delete id="deleteUserinfo" parameterType="long" >
+    DELETE FROM userinfo WHERE userId = #{userId}
+  </delete>
+
+  <update id="updateAvailabilityFlag">
+    UPDATE userinfo SET
+      availabilityFlag = #{availabilityFlag}
+    WHERE userId = #{userId}
+  </update>
+
+  <update id="updateJsessionId">
+    UPDATE userinfo SET
+      jsessionId = #{jsessionId}
+    WHERE userId = #{userId}
+  </update>
+
+</mapper>
